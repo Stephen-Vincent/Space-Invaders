@@ -30,7 +30,7 @@ function setup() {
 }
 
 function draw() {
-  startGame();
+  Game();
 }
 
 // Key Event Handlers
@@ -69,6 +69,7 @@ function gameOver() {
   textSize(72);
   textAlign(CENTER);
   text("GAME OVER", width / 2, height / 2);
+  noLoop();
   textSize(20);
   text("Press ENTER to start the game!", width / 2, height / 2 + 50);
   gameStart = 0;
@@ -76,8 +77,9 @@ function gameOver() {
 
 //----------- GAME CODE --------------------
 
-function startGame() {
+function Game() {
   clear();
+  loop();
   if (gameStart == 0) {
     fill(255);
     background(50);
@@ -162,4 +164,8 @@ function resetGame() {
     aliens[j] = new Alien(offset * startX + 80, startY, alien2a, alien2b, 10);
     offset++;
   }
+}
+
+function startGame() {
+  Game();
 }
